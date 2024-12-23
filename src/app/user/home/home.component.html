@@ -1,3 +1,4 @@
+<app-nav-bar></app-nav-bar>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +9,27 @@
 </head>
 <body class="bg-gray-900 text-white">
 
-  <!-- hero -->
+  <!-- Hero Section -->
   <section class="relative bg-cover bg-center h-screen">
+    <!-- Dark overlay -->
     <div class="absolute inset-0 bg-black opacity-40"></div>
     
-    <div class="container mx-auto text-center relative z-10 pt-64">
+    <!-- Content -->
+    <div class="container mx-auto text-center relative pt-64">
       <h1 class="text-5xl sm:text-6xl font-bold mb-6">Step into Style</h1>
       <p class="text-lg sm:text-2xl mb-8">Explore the latest trends in footwear and find your perfect pair today!</p>
-      <!--SHOP NOW NAVIGATION IS HERE-->
-      <a routerLink="/shopnow" routerLinkActive="active" class="bg-gray-900 hover:bg-gray-700 text-white py-3 px-6 rounded-full text-lg font-semibold transition duration-300">Shop Now</a>
+      
+      <!-- Dynamic button for User and Admin -->
+      <a *ngIf="!isAdmin" routerLink="/shopnow" routerLinkActive="active"
+         class="bg-gray-900 hover:bg-gray-700 text-white py-3 px-6 rounded-full text-lg font-semibold transition duration-300">
+        Shop Now
+      </a>
+      <a *ngIf="isAdmin" routerLink="/adminfeatured" routerLinkActive="active"
+         class="bg-gray-900 hover:bg-gray-700 text-white py-3 px-6 rounded-full text-lg font-semibold transition duration-300">
+        View Products
+      </a>
     </div>
   </section>
+
 </body>
 </html>

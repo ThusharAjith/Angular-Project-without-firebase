@@ -6,23 +6,21 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
-import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdminModule } from "../admin/admin.module";
 
-// Firebase modules
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireModule } from '@angular/fire/compat';
-
-// routes are being defined here
+// Routes are being defined here
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'featured', component: FeaturedProductsComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'shopnow', component: FeaturedProductsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'cart', component: CartComponent }
+  {path: 'profile', component: ProfileComponent},
+  {path: 'cart', component: CartComponent}
+
 ];
 
 @NgModule({
@@ -31,23 +29,24 @@ const routes: Routes = [
     AboutUsComponent,
     FeaturedProductsComponent,
     HomeComponent,
-    ContactComponent,
-    ProfileComponent,
     CartComponent,
+    ProfileComponent,
+    FooterComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    AngularFireModule.initializeApp(environment.firebaseConfig), // Initialize Firebase
-    AngularFireAuthModule, // Import Firebase Auth Module
-    AngularFirestoreModule, // Import Firestore Module
-  ],
+],
   exports: [
     NavBarComponent,
     AboutUsComponent,
     FeaturedProductsComponent,
     HomeComponent,
-    RouterModule, // to be used in other modules
+    RouterModule, // To be used in other modules
+    CartComponent,
+    ProfileComponent,
+    FooterComponent,
   ],
 })
-export class UserModule { }
+export class UserModule {}
